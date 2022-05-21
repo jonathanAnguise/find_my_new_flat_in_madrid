@@ -10,7 +10,7 @@ I see this like that for now:
 - main.py (classic main file)
 
 ## To Do
-- [ ] Search if there is an API on [idealista][www.idealista.es], if not do some webscraping
+- [ ] Search if there is an API on [idealista](www.idealista.es), if not do some webscraping
 - [ ] Find how to contact the guy... Get a solution to use google sms web app? WhatsApp api? only by email (email should be the last method available because it's the esiest and also, I thing other contact are more relevant and have more impact
 - [ ] Find how manage messages.
 - [ ] Find how execute it on a server... Python every where coud be a good solution
