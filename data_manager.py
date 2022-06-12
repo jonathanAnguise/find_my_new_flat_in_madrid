@@ -10,7 +10,6 @@ class DataManager:
             data = [int(property_code) for property_code in f.readlines()]
         for flat in self.flat_json['elementList']:
             if int(flat['propertyCode']) not in data:
-                print("not in")
                 self.flat_to_add.append(flat)
                 self.list_added_flat_id.append(int(flat['propertyCode']))
 

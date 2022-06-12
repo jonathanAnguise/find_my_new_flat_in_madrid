@@ -30,7 +30,6 @@ def get_new_token():
     }
 
     token_response = requests.post(AUTH_URL, headers=header, params=param)
-    print(token_response.json())
     return token_response.json()
 
 
