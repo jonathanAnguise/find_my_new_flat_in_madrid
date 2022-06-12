@@ -1,4 +1,5 @@
 from api_idealista import *
+from data_manager import *
 
 filters_param = {
     "operation": "rent",
@@ -7,5 +8,7 @@ filters_param = {
     "distance": "6000",
     "maxPrice": "750"
 }
-new_request = FlatAppManager(filters_param).get_request()
-print(new_request)
+
+flat_api = FlatAppManager(filters_param)
+flat_data = flat_api.get_request()
+DataManager.get_useful_data(flat_data)
