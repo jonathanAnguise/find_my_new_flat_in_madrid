@@ -16,40 +16,40 @@ END_POINT = "https://api.idealista.com/3.5/es/search"
 
 debug_mode = True
 
-def get_new_token():
 
-   header = {
-       "Authorization": auth_header,
-       "Content-Type": "application/x-www-form-urlencoded"
+def get_new_token():
+    header = {
+        "Authorization": auth_header,
+        "Content-Type": "application/x-www-form-urlencoded"
     }
 
-   param = {
-       "grant_type": "client_credentials"
-   }
+    param = {
+        "grant_type": "client_credentials"
+    }
 
-   token_response = requests.post(AUTH_URL, headers=header, params=param)
-   print(token_response.json())
-   return token_response.json()
+    token_response = requests.post(AUTH_URL, headers=header, params=param)
+    print(token_response.json())
+    return token_response.json()
+
 
 token = get_new_token()
 
-param = {
-    "operation": "rent",
-    "propertyType": "homes",
-    "center": "40.123,-3.242",
-    "distance": "10000"
-}
+
 api_call_headers = {'Authorization': f"Bearer {token['access_token']}"}
-# Try to limit request and work with local jsonfile (./request_answer.json)
-if debug_mode:
-    api_call_response = requests.post(END_POINT, headers=api_call_headers, params=param)
 
-print(api_call_response.json())
-print(api_call_response.text)
 
-# #TODO 2: Create a class
-# class flatAppManager:
-#
-#     def __init__(self):
-#         self.answer_dict = {}
-# #TODO 2.1: Class has json has property
+class FlatAppManager:
+
+    def __init__(self, parameters):
+        self.api_call_response = {}
+        self.param = parameters
+
+    def get_request(self):
+        if debug_mode:
+            print("debug mode")
+            # Try to limit request and work with local jsonfile (./request_answer.json)
+            with open("./request_answer.json") as f:
+                self.api_call_response = json.load(f)
+        else:
+            self.api_call_response = requests.post(END_POINT, headers=api_call_headers, params=self.param).json()
+        return self.api_call_response
