@@ -14,9 +14,7 @@ class DataManager:
                 self.flat_to_add.append(flat)
                 self.list_added_flat_id.append(int(flat['propertyCode']))
 
-        # TODO 1.3: And write flat it to data dict in order to don't have duplicate
     def register_flat_id_to_avoid_duplicate(self):
         for flat_id in self.list_added_flat_id:
             with open(file="./already_sent.txt", mode='a') as f:
-                # flat_id = str(flat_id)
                 f.write(f"{str(flat_id)}\n")
