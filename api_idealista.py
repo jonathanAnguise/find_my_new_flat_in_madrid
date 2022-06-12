@@ -1,6 +1,8 @@
 import requests
+import os
+import base64
+import json
 from dotenv import load_dotenv
-import os, base64, json
 
 project_folder = os.path.expanduser('.')  # adjust as appropriate
 load_dotenv(os.path.join(project_folder, '.env'))
@@ -33,8 +35,6 @@ def get_new_token():
 
 
 token = get_new_token()
-
-
 api_call_headers = {'Authorization': f"Bearer {token['access_token']}"}
 
 
