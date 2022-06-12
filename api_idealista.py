@@ -16,7 +16,7 @@ auth_header = f"Basic {base64_credential}"
 
 END_POINT = "https://api.idealista.com/3.5/es/search"
 
-debug_mode = True
+debug_mode = False
 
 
 def get_new_token():
