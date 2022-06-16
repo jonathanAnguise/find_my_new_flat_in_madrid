@@ -11,7 +11,7 @@ I want to find a good apartment, but I have neither the time nor the motivation 
 3. Create .env file with api credentials
    ```bash
    echo 'APIKEY="api_key_here"'>.env
-   echo 'SECRET'="your_secret_here"'>>.env
+   echo 'SECRET="your_secret_here"'>>.env
    ```
 4. Create virtual env and install requirements
    ```bash
